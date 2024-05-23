@@ -1,0 +1,13 @@
+<main class="container">
+  <h2 class="m-3 text-center">Chatbots</h2>
+  <div class="chats-container" *ngIf="chatbotsList">
+    <div class="card" *ngFor="let chat of chatbotsList">
+      <img class="card-img-top" src="assets/images/bot.png" alt="{{chat.title}}">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a routerLink="/chats" routerLinkActive="active">{{chat.title}}</a></h5>
+        <p class="card-text">{{chat.description}}</p>
+       </div>
+    </div>
+    </div>
+</main>

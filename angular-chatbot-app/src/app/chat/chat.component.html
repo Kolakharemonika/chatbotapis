@@ -1,0 +1,29 @@
+<div class="chat-container ">
+  <header class="p-3 ">
+    <div class="bot-avatar">
+      <img class="bot-icon" src="{{botInfo.avatar}}" alt="chat-logo">
+      <div class="status"></div>
+    </div>
+    <h3 class="heading"> {{botInfo.display_name}} </h3>
+    <button class="close-button" (click)="gotoHome()">
+      Home
+    </button>
+  </header>
+
+  <main class="chat-box" #chatBox>
+    <div class="message" *ngFor="let message of messages;">
+       <div class="message-content" [ngClass]="{ 'user-message': !message.system, 'bot-message': message.system }">
+        {{ message.text }}
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="input-container">
+      <textarea class="scroll" rows="1" placeholder="How may I help you?..." [(ngModel)]="userMessage"></textarea>
+      <button (click)="getAnswer()">
+        <img src="assets/images/btn-send.svg" alt="btn-img">
+      </button>
+    </div>
+  </footer>
+</div>
